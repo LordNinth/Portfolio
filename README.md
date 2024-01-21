@@ -1,1 +1,2 @@
-# portfolio
+# Playground
+Coding Journal
