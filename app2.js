@@ -63,12 +63,15 @@ new Promise((resolve, reject)=>{
 const fakeRequest = (url) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve();
+      resolve('success!!!!!!!!!!!!');
+      reject('error!!!!!!!!!');
     }, 2000);
   });
 };
 
 fakeRequest()
-.then(()=>{
-  console.log('done with request')
+.then((a)=>{
+  console.log('done with request',a)
+}).catch((e)=>{
+  console.log('error',e)
 })
