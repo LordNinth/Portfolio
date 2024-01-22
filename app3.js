@@ -10,7 +10,8 @@ fetch("https://swapi.dev/api/people/1/")
     //res.json method parses the json & gives full data and returns promise. So chain .then to see the data we got back
     return res.json();
   })
-  .then((data) => { //accessing value promise resolved with
+  .then((data) => {
+    //accessing value promise resolved with
     console.log("json done", data);
     return fetch("https://swapi.dev/api/people/2/"); //nesting 2nd request should also return promise
   })
@@ -22,3 +23,34 @@ fetch("https://swapi.dev/api/people/1/")
   .catch((e) => {
     console.log("error!", e);
   });
+
+//1.2 Fetch async enables us to refactor this code
+
+const loadCharacter = async () => {
+  try {
+    const res = await fetch("https://swapi.dev/api/people/1/");
+    const data = await res.json();
+    console.log(data);
+    const res2 = await fetch("https://swapi.dev/api/pe");
+    const data2 = await res2.json();
+    console.log(data2);
+  } catch (e) {
+    console.log("error!", e);
+  }
+};
+
+//TLDR: fetch returns promise, add .then/.catch to the res object. Res object is not automatically parsed, so we need to run .json method to fully parse the json
+
+// [NOTE: Parsing of the json separately is needed to get full data!]
+
+//3:Axios
+
+axios.get("https://swapi.dev/api/people/1/") //makes request and parses json and add it to the res object include
+.then(res=>{console.log(res)}) 
+.catch(e=>{console.log('error!',e)})
+
+
+const getCharacter = async(num)=>{
+   const person = await axios.get(`https://swapi.dev/api/people/${num}/`) 
+   console.log(person.data)
+}
