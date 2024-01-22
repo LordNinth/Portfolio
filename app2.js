@@ -129,3 +129,4 @@ async function rainbow() {
 }
 
 rainbow().then(a=> console.log(a)) //printing the value promise resolved with
+
