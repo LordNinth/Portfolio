@@ -45,12 +45,21 @@ const loadCharacter = async () => {
 
 //3:Axios
 
-axios.get("https://swapi.dev/api/people/1/") //makes request and parses json and add it to the res object include
-.then(res=>{console.log(res)}) 
-.catch(e=>{console.log('error!',e)})
+//makes request and parses json and add it to the res object include
+axios
+  .get("https://swapi.dev/api/people/1/")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((e) => {
+    console.log("error!", e);
+  });
 
-
-const getCharacter = async(num)=>{
-   const person = await axios.get(`https://swapi.dev/api/people/${num}/`) 
-   console.log(person.data)
-}
+const getCharacter = async (num) => {
+  try {
+    const person = await axios.get(`https://swapi.dev/api/people/${num}/`);
+    console.log(person.data);
+  } catch (e) {
+    console.log("Error is:", e);
+  }
+};
