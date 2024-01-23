@@ -12,8 +12,8 @@ console.log("js run2");
 
 // -----------------
 
-//1.1: Callbacks are used to delay code execution. It is often used when there are dependent actions, i.e only after first thing is finished, second thing can happen
-// searchMoviesAPI(amadeus, ()=>{ //it will search for that movie and then execute callback f()
+//1.1: Callbacks are used to delay code execution. It is often used when there are dependent actions, i.e only after first thing is finished, second thing can happen. For e.g. making request to API
+// searchMoviesAPI(amadeus, function()=>{ //it will search for that movie and then execute callback f()
 //   saveToMyDB(movies, ()=>{
 //     //success('if it works run this CB') as CB is called, I am also passing info in.
 //   }, ()=>{
@@ -73,7 +73,7 @@ fakeRequestCallback("books.com/page1",
 //   .then((a) => {
 //     //this method is run if promise is resolved
 //     console.log(" page 1 works");
-//     fakeRequestPromise("page2")
+//     fakeRequestPromise("page2") //second request returns promise and we can chain .then
 //       .then(() => {
 //         console.log(" page 2 works");
 //         fakeRequestPromise("page 3")
@@ -83,7 +83,8 @@ fakeRequestCallback("books.com/page1",
 //           .catch(() => {
 //             console.log("page 3 error");
 //           });
-//       })
+//       }) 
+//        this is run if promise is rejected
 //       .catch(() => {
 //         console.log("page 2 error");
 //       });
@@ -93,6 +94,8 @@ fakeRequestCallback("books.com/page1",
 //     //method runs depending on promise outcome
 //     console.log("error", e);
 //   });
+
+// Refactoring above code
 // fakeRequestPromise("page1")
 //   .then((a) => {
 //     console.log("page 1 work", a);
@@ -110,11 +113,12 @@ fakeRequestCallback("books.com/page1",
 //     console.log("error", err);
 //   });
 
-// // 1.1: creating own Promise
+// // 3.1: Creating own Promise
 // // Promise takes two parameter resolve and reject (can be any name)
 // // they are functions we can execute inside promise to represent promise status
 // new Promise((resolve, reject) => {
-//   resolve();
+//   resolve(); //or
+//   reject();
 // });
 
 // const fakeRequest = (url) => {
