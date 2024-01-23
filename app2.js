@@ -1,4 +1,4 @@
-// //Promises
+// 1: Promises
 // const fakeRequestPromise = (url) => {
 //   return new Promise((resolve, reject) => {
 //     const delay = Math.floor(Math.random() * 4500) + 500;
@@ -53,7 +53,7 @@
 //     console.log("error", err);
 //   });
 
-// // creating own Promise
+// // 1.1: creating own Promise
 // // Promise takes two parameter resolve and reject (can be any name)
 // // they are functions we can execute inside promise to represent promise status
 // new Promise((resolve, reject) => {
@@ -76,8 +76,8 @@
 //   .catch((e) => {
 //     console.log("error", e);
 //   });
-
-//async function
+// ----------
+//2: Async function
 
 // const sing = async () =>{
 //   throw 'UH HO HHOHO'
@@ -90,7 +90,7 @@
 //   console.log('rejected with', error)
 // })
 
-//declaring async function returns promise.
+//2.1: Declaring async function returns promise.
 //returning value is resolved(), error is rejected()
 //if we return a value, promise will be resolved with value
 const login = async (username, password) => {
@@ -121,7 +121,7 @@ function delayedColorChange(color, delay) {
 // .then(()=> delayedColorChange("green", 1000))
 // .then(()=> delayedColorChange("blue", 1000))
 
-//Async and await can enable us to avoid using .then method
+//3: Async and await can enable us to avoid using .then method
 async function rainbow() {
  await delayedColorChange('red', 2000) //waits for promise to resolve and returns promise
  await delayedColorChange('green', 1000)
