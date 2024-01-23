@@ -55,8 +55,9 @@ fakeRequestCallback("books.com/page1",
   } //this line ends failure block
 );
 
-// 2: Promises
-// const fakeRequestPromise = (url) => {
+// 2: Promise is an object, its a promise of eventual value that may or may not work out. It has 3 states: pending, resolved and rejected. It takes two parameter resolve/ reject
+// We attach "callbacks/methods" to returned promise object instead of functions as seen before.
+// const fakeRequestPromise = (url) => { //only expects url to be passed, no call backs.
 //   return new Promise((resolve, reject) => {
 //     const delay = Math.floor(Math.random() * 4500) + 500;
 //     setTimeout(() => {
@@ -69,9 +70,9 @@ fakeRequestCallback("books.com/page1",
 //   });
 // };
 
-// fakeRequestPromise("page1") //makes request and promise is returned
+// fakeRequestPromise("page1") //makes request and promise object is returned
 //   .then((a) => {
-//     //this method is run if promise is resolved
+//     //If resolved .this method will run and execute CB f(). Depending on the promise outcome, only .then or .catch work.
 //     console.log(" page 1 works");
 //     fakeRequestPromise("page2") //second request returns promise and we can chain .then
 //       .then(() => {
@@ -84,7 +85,7 @@ fakeRequestCallback("books.com/page1",
 //             console.log("page 3 error");
 //           });
 //       }) 
-//        this is run if promise is rejected
+//        //If rejected .catch method will run and execute CB f()
 //       .catch(() => {
 //         console.log("page 2 error");
 //       });
@@ -94,12 +95,13 @@ fakeRequestCallback("books.com/page1",
 //     //method runs depending on promise outcome
 //     console.log("error", e);
 //   });
+// [NOTE: THIS METHOD STILL HAS LOT OF NESTING]
 
-// Refactoring above code
+// Refactoring above code. If we explicitly return promise from without our CB () we can chain .then method after it, instead of nesting it within the same .then method.
 // fakeRequestPromise("page1")
 //   .then((a) => {
 //     console.log("page 1 work", a);
-//     //return a promise from our call back which allows us to chain .then method
+//     //return a promise from within our CB F() which allows us to chain .then method if promise is resolved.
 //     return fakeRequestPromise("page2");
 //   })
 //   .then((a) => {
@@ -109,13 +111,14 @@ fakeRequestCallback("books.com/page1",
 //   .then((a) => {
 //     console.log("page 3 work", a);
 //   })
+//    //only one .catch method is needed. At any point promise is rejected, this will run.
 //   .catch((err) => {
 //     console.log("error", err);
 //   });
 
 // // 3.1: Creating own Promise
-// // Promise takes two parameter resolve and reject (can be any name)
-// // they are functions we can execute inside promise to represent promise status
+// // Promise takes two parameters resolve and reject (can be any name)
+// // they are functions we can execute inside promise to represent promise status, or else it will stay pending until resolved/ rejected is called
 // new Promise((resolve, reject) => {
 //   resolve(); //or
 //   reject();
