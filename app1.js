@@ -1,4 +1,4 @@
-//higher order function = accepts functions as parameters or returns function
+//1: Higher order function = accepts functions as parameters or returns function
 
 function ageCheck(min, max) {
   return function (num) {
