@@ -121,7 +121,8 @@ const clearImage = () => {
   const images = document.querySelectorAll("#images img");
   // for (let i = 0; i < images.length; i++) {
   //   images[i].remove()
-  images.forEach(image => {image.remove()   
+  images.forEach((image) => {
+    image.remove();
   });
-  };
+};
 reset.addEventListener("click", clearImage);
