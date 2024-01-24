@@ -65,25 +65,63 @@
 // };
 
 //3.1: Axios and Header. Sometimes to request json, some API will have to specify headers, /json, or add &=json. In this e.g. we look at Accept header (object) set to application/json
-const jokes = document.querySelector("#joke");
-const button = document.querySelector("button");
-const hText = document.querySelector("h1");
+// const jokes = document.querySelector("#joke");
+// const button = document.querySelector("button");
+// const hText = document.querySelector("h1");
 
-const dadJoke = async () => {
-  const config = { headers: { Accept: "application/json" } };
-  const res = await axios.get("https://icanhazdadjoke.com", config);
-  return res.data.joke;
-};
-//async function because we are waiting on promise value from dadJoke()
-const addJoke = async () => {
-  try {
-    const newJoke = await dadJoke(); //has to wait for dadJoke () to resolve promise, so await otherwise we get undefined result as there is no result
-    const liText = document.createElement("li"); //creating Li element
-    liText.append(newJoke); //setting li text
-    jokes.append(liText); //appending it to parent Ul element
-  } catch (e) {
-    console.log("error is", e);
+// const dadJoke = async () => {
+//   const config = { headers: { Accept: "application/json" } };
+//   const res = await axios.get("https://icanhazdadjoke.com", config);
+//   return res.data.joke;
+// };
+// //async function because we are waiting on promise value from dadJoke()
+// const addJoke = async () => {
+//   try {
+//     const newJoke = await dadJoke(); //has to wait for dadJoke () to resolve promise, so await otherwise we get undefined result as there is no result
+//     const liText = document.createElement("li"); //creating Li element
+//     liText.append(newJoke); //setting li text
+//     jokes.append(liText); //appending it to parent Ul element
+//   } catch (e) {
+//     console.log("error is", e);
+//   }
+// };
+
+// button.addEventListener("click", addJoke); //only after clicking, dadJoke will execute
+
+//3.2 TV show form
+const form = document.querySelector("#searchForm");
+const reset = document.querySelector("#clearImage");
+form.addEventListener("click", async function (e) {
+  e.preventDefault();
+  const searchTerm = form.elements.query.value;
+  //this config lets us add multiple variable to our search url
+  const config = { params: { q: searchTerm } }; //making our query string object with property name params
+  const res = await axios.get(
+    `http://api.tvmaze.com/search/shows?q=`,
+    config //whatever is under params, those key value pairs will be added
+  );
+  makeImages(res.data);
+});
+
+const container = document.querySelector("#container");
+const uList = document.querySelector("#images");
+
+// making image function
+const makeImages = (shows) => {
+  for (let result of shows) {
+    if (result.show.image) {
+      const img = document.createElement("img");
+      img.src = result.show.image.medium;
+      uList.append(img);
+    }
   }
 };
 
-button.addEventListener("click", addJoke); //only after clicking, dadJoke will execute
+const clearImage = () => {
+  const images = document.querySelectorAll("#images img");
+  // for (let i = 0; i < images.length; i++) {
+  //   images[i].remove()
+  images.forEach(image => {image.remove()   
+  });
+  };
+reset.addEventListener("click", clearImage);
