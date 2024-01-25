@@ -101,3 +101,36 @@
 
 // const red = new Color(255, 255, 89, "yellow");
 // document.body.style.backgroundColor = red.rgba(0.5);
+
+
+//3.1 Class extender will help reduce duplication of codes
+
+class Pet{ //base class
+    constructor(name,age){
+        this.name =name;
+        this.age = age;
+    }
+    eat(){
+        return `${this.name} is eating!`;
+    }
+}
+class Cat extends Pet{
+    //sometimes you want to rely on constructor from super class i.e Pet
+    //E.g if i want additional info on cat
+    constructor(name,age,lives=9){
+        //super references the class that is being extended
+        super(name,age) //this will call the Pet constructor and allows us to reuse functionality from pet constructor. I.e inheritance
+        this.lives = lives;
+    }
+    meow(){
+        return 'Meowh!';
+    }
+}
+class Dog extends Pet{ //this is exact same constructor as Pet. It will call that constructor automatically
+    bark(){
+        return 'woof!'
+    }
+}
+
+const newCat = new Cat('lil', 7);
+const newDog = new Dog('bork',4);
