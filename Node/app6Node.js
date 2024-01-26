@@ -12,3 +12,11 @@
 //use to debug, play around with new tool/feature we install. We can also write JS. Think of it like: Node equivalent of JS console in chrome
 //in node. Global is equivalent to Browser Window. It contains all the functions. Inside node, it is the top level bubble
 //In node, we dont have any of the browser functions DOM API. But we have other built in modules which help us interact with files and OS.
+
+//Running node file
+for (let i =0; i<10; i++){
+    console.log("hello form first script")
+}
+
+//write node firstScript.js in terminal and JS code will run. Have to be in right directory, or put absolute path.
+
