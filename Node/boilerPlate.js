@@ -6,9 +6,9 @@
 
 //2: File system module crash course
 
-const fs = require('fs');
+const fs = require("fs");
 
-const folderName = process.argv[2] || 'Project'
+const folderName = process.argv[2] || "Project";
 //async
 // fs.mkdir('Dogs',{recursive:true},(err)=>{
 //     console.log('In the call back')
@@ -16,15 +16,13 @@ const folderName = process.argv[2] || 'Project'
 // });
 // console.log('COme after mkdir')
 
-
-try{
-
-    fs.mkdirSync(folderName)
-    //this method requires file name (first argument) and the "data" argument. Data is the content you want written in file.
-    fs.writeFileSync(`${folderName}/index.html`,'') //'data' is empty string bcas we making empty file.
-    fs.writeFileSync(`${folderName}/app.js`,'')
-    fs.writeFileSync(`${folderName}/styles.css`,'')
-}
-catch(e){
-    console.log("something went wrong",e)
+//synchronous version
+try {
+  fs.mkdirSync(folderName);
+  //this method requires file name (first argument) and the "data" argument. Data is the content you want written in file.
+  fs.writeFileSync(`${folderName}/index.html`, ""); //'data' is empty string bcas we making empty file.
+  fs.writeFileSync(`${folderName}/app.js`, "");
+  fs.writeFileSync(`${folderName}/styles.css`, "");
+} catch (e) {
+  console.log("something went wrong", e);
 }
