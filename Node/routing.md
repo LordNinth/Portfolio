@@ -1,0 +1,1 @@
+1: Routing refers to taking incoming request and a path that is requested and matching that to a code in some response. Path could be /dog, /help anything.
