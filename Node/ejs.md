@@ -15,6 +15,8 @@ Data in between this wont be rendered into the template
 2: Serving static files in express. This allows us to use css, jss, images 
 app.use(express.static('public')) //public is the directory with //css, /js, /images
 
+download jquery and bootstraps:  add bootstrap.min.js/css & jquery in public folder css/jss file
+
 
 3:Partials 
 Great tools to reduce code duplication
