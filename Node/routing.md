@@ -1,6 +1,6 @@
 1: Routing refers to taking incoming request and a path that is requested and matching that to a code in some response. Path could be /dog, /help anything.
 
-Get request: use them to retrieve info.
+2: Get request: use them to retrieve info.
 
 when we submit get request if we have data that is being sent alongside or with request, it is included in the query string. This allows us to see data in url, with query string. There is a word limit in url. We cannot use body to send data.
 We are only sending data like query search term, filters, sort by and so on. But we are not creating stuff, we are not sending data that is being used to edit/update or create stuff.
@@ -12,6 +12,10 @@ Post req is to create things, where you can send bunch of data like signing up, 
 
 Note: incoming request have query string and request body.
 
+3: app.get have .send and .render methods. 
+sendFile() function in Express. js is mainly used to send the file at the given path whereas the 
+render() function is used to render a view and send the HTML string to the client as a response
+
 app.use: is a middleware that gets used on every single request
 
 syntax to parse incoming request body with urlencoded payloads:
@@ -22,3 +26,32 @@ app.use(express.urlencoded({ extended:true}))
 syntax to parse incoming request body with json payloads:
 
 app.use(express.json())
+
+
+
+4: REST stands for representational state transfer. It is set up guide line, idea, principles on how client and server should communicate with each other when architecting web applications.  - Architectural style for distributed hypermedia systems.
+
+CRUD: create, read, update and delete.
+resource is an entity that we provide access to via http.
+
+http is stateless protocol, every request is on its own in vacuum, it does not have access to request before. 
+Every restful system have restful interface, which mostly contains consistent url patterns matches with different http verbs. 
+So we can combine base url with diff http methods to expose full CRUD operations over HTTP. We are going to create API, applications i.e. todo someone can create new comment, view it, edit it or delete it using restful guideline.
+----
+github has api that expose CRUD functionality for gist
+get/gists/{gist_id}: gives me info
+
+post/gists/{gist_id}: post req to same endpoint gists is how we make new gist. (gists is a resource in rest context)
+
+patch/gists/{gist_id}: updating something on same endpoint.
+
+delete/gists/{gist_id}: delete something 
+
+I have crud capability via http.
+
+BASIC CRUD FUNC blueprint
+ GET /comments - list all comments
+ POST /comments - Create a new comment
+ GET /comments/:id - Get one comment (using ID)
+ PATCH /comments/:id - Update one comment
+ DELETE  /comments/:id - Destroy one comment

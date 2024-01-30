@@ -11,3 +11,5 @@ What is framework?
 Framework gives us infrastructure for app (games, ios app and so on), and we are writing code according to how the framework works, we are following the rule. We abide by this rule because it enables us to make full applications. Framework have broader utility. We give us control/flexibility for speed of development and bunch of features that framework provide. Different frameworks have different level of control. For e.g ruby will even dictate how variables are named. Express is definitely simpler and easier t learn.
 
 We need to learn to incorporate our code into the flow of the framework.
+
+sendFile() function in Express. js is mainly used to send the file at the given path whereas the render() function is used to render a view and send the HTML string to the client as a response
