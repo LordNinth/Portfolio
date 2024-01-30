@@ -1,3 +1,5 @@
+
+Creating dynamic HTML with templating
 1: Embedded javascript
 
 //npm i EJS (embedded javascript)
