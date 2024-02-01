@@ -63,3 +63,11 @@ vii: processing user inputs via js (only client side process i.e runs in the web
     8. The response travels across the internet, back to Alice’s computer.
 
     9. Alice’s browser receives the response and uses that information to create and render the view that Alice ultimately sees!
+
+summary: browser sends http get + uri to server which is actively listening. Server receives the http request
+
+the server will process the incoming request, sends query to db and db sends response back. Server receives response back. and it is ready to construct and send response back to the browser.
+
+the response body has all information needed about the product, response header will have http status code 200 to indicate the request has succeeded. 
+
+browser receives the response and uses that information to create and render the view.
