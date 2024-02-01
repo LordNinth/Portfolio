@@ -4,7 +4,7 @@
 
 //process.argv[2] //to ignore first 2 index
 
-//2: File system module crash course
+//2: File system module crash course.  All modules need to be require first before using. We do not have to download but its also not available by default. Therefore, we need to tell node we need access to it.
 
 const fs = require("fs");
 
