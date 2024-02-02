@@ -13,7 +13,8 @@ Post req is to create things, where you can send bunch of data like signing up, 
 
 Note: incoming request have query string and request body.
 
-3: app.get have .send and .render methods. 
+3: Express function have methods such as: .get, .send and .render methods.
+
 sendFile() function in Express. js is mainly used to send the file at the given path whereas the 
 render() function is used to render a view and send the HTML string to the client as a response. By default, res.render looks in views folder.
 
@@ -26,6 +27,10 @@ app.use(express.urlencoded({ extended:true})) i.e please parse data from req bod
 app.use(express.json()) . i.e please use middle ware to parse data from json
 
 ---
+
+View engine allow us to render web pages using template files. These templates are filled with actual data and served to the client.
+--
+app.set('view engine', 'ejs') //this syntax sets the view engine to ejs
 
 app.set("views", path.join(__dirname, "views")); i.e take absolute path and add views in that folder, so can execute files from dir above
 
