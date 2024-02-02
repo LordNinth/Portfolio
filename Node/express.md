@@ -12,4 +12,3 @@ Framework gives us infrastructure for app (games, ios app and so on), and we are
 
 We need to learn to incorporate our code into the flow of the framework.
 
-sendFile() function in Express. js is mainly used to send the file at the given path whereas the render() function is used to render a view and send the HTML string to the client as a response
