@@ -47,7 +47,7 @@ Every restful system have restful interface, which mostly contains consistent ur
 So we can combine base url with diff http methods to expose full CRUD operations over HTTP. We are going to create API, applications i.e. todo someone can create new comment, view it, edit it or delete it using restful guideline.
 ----
 github has api that expose CRUD functionality for gist
-get/gists/{gist_id}: gives me info
+get/gists/{gist_id}: gives me info /serve a form with .render
 
 post/gists/{gist_id}: post req to same endpoint gists is how we make new gist. (gists is a resource in rest context)
 
