@@ -51,7 +51,7 @@ get/gists/{gist_id}: gives me info /serve a form with .render
 
 post/gists/{gist_id}: post req to same endpoint gists is how we make new gist. (gists is a resource in rest context)
 
-patch/gists/{gist_id}: updating something on same endpoint.
+patch/gists/{gist_id}: updating something on same endpoint. /also has payload like post request
 
 delete/gists/{gist_id}: delete something 
 
@@ -61,5 +61,10 @@ BASIC CRUD FUNC blueprint
  GET /comments - list all comments
  POST /comments - Create a new comment
  GET /comments/:id - Get one comment (using ID)
- PATCH /comments/:id - Update one comment
+ PATCH /comments/:id - Update one comment 
  DELETE  /comments/:id - Destroy one comment
+---
+
+ We can listen for .get , .post etc request inside our express ap
+
+ HTML forms can only send get and post req. Cannot send put/patch and so on
