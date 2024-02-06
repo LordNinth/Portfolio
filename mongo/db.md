@@ -4,10 +4,12 @@ Json supports: String, bool, number and array
 Bson: String, Boolean, Number(int, float,long,decimal...), Array, Date, Raw binary
 
 Insert Methods
+Specify collection you want to insert
 When inserting if collections doesn't exists, it creates for us.
 
 commands:
-//inserting one object
+//Create
+1: Inserting one object
 db.dogs.insert({name: "charlie", age:3, breed:"corgi", likeCat: true}) //dogs is empty collection, so dog will be created and object will be inserted.
 
 inserting multiple obj in array
@@ -20,3 +22,22 @@ db.cat.insert([{name:"wyatss", breed:"golden"}, {name:"tonyaaa", breed:"chihuahu
 
 cats and dogs are in same DB. 
 if we switch db, by use local. we wont see the collections
+
+#Reading
+2: Selective search using .find()
+db.dogs.find({breed:"corgi"}) //find corgi breed in dog collection
+
+.find({}) //find everything
+.find() returns a cursor, its a pointer/reference to the result. It is not the result itself. It prevents 1000s of result being returned at once. Instead, we can iterate over a cursor and get the desired result.
+
+.findOne() //returns the actual result/document
+
+#update
+3: db.dogs.updateOne({name:'Charlie'}, {$set: {age:4}}) //first arg is selector to find, second arg is the update. Use $set operator
+
+There are many other operator like $currentDate:{ lastModified:true} // this will change last modified to current date.
+
+#delete
+4: db.cats.deleteOne({name:"blue Steele"})
+db.dogs.deleteMany({isAvailable:false}) //delete multiple
+db.dogs.deleteMany({}) deletes entire collection
