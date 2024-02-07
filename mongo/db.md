@@ -42,7 +42,8 @@ db.dogs.find({breed:"corgi"}) //find corgi breed in dog collection
 #update
 3: db.dogs.updateOne({name:'Charlie'}, {$set: {age:4}}) //first arg is selector to find, second arg is the update. Use $set operator
 
-There are many other operator like $currentDate:{ lastModified:true} // this will change last modified to current date.
+There are many other operator like 
+$currentDate:{ lastModified:true} // this will change last modified to current date.
 
 #delete
 4: db.cats.deleteOne({name:"blue Steele"})
