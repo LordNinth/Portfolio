@@ -29,7 +29,6 @@ db.cats.insert([{name:"wyatss", breed:"golden"}, {name:"tonyaaa", breed:"chihuah
 cats and dogs are in same DB.
 if we switch db, by use local. we wont see the collections
 
-
 #Reading
 2: Selective search using .find()
 db.dogs.find({breed:"corgi"}) //find corgi breed in dog collection
@@ -52,7 +51,12 @@ $currentDate:{ lastModified:true} // this will change last modified to current d
 db.dogs.deleteMany({isAvailable:false}) //delete multiple
 db.dogs.deleteMany({}) deletes entire collection
 
-special operators
-$gt
-$lt
-$in
+5: special operators
+$gt: greater than
+$lt: less than
+$in: 
+    i: find breed which is mutt or corgi , less than 10 aged
+    db.dogs.find({breed: {$in: ['mutt', 'corgi']}, age:{$lt:10}}) 
+
+$or: set it equal to array which has multiple expression
+    db.dogs.find({$or: [{"personality.catFriendly": true}, {age: {$ltc:2}}]})
