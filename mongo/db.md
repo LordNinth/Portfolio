@@ -6,14 +6,13 @@ Json supports: String, bool, number and array
 Bson: String, Boolean, Number(int, float,long,decimal...), Array, Date, Raw binary
 
 commands:
-    Open shell //mongosh
-    Use animalShelter // creates a new collection
-    db // shows current collection
+Open shell //mongosh
+Use animalShelter // creates a new collection
+db // shows current collection
 
 Insert Methods
 Specify collection you want to insert
 When inserting if collections doesn't exists, it creates for us.
-
 
 //Create
 1: Inserting one object
@@ -25,10 +24,11 @@ db.dogs.insert([{name:"wyat", breed:"golden"}, {name:"tonya", breed:"chihuahua"}
 show collections // show DBs
 db.dogs.find() // shows all data of dog collection with unique id added
 
-db.cat.insert([{name:"wyatss", breed:"golden"}, {name:"tonyaaa", breed:"chihuahua"}])
+db.cats.insert([{name:"wyatss", breed:"golden"}, {name:"tonyaaa", breed:"chihuahua"}])
 
-cats and dogs are in same DB. 
+cats and dogs are in same DB.
 if we switch db, by use local. we wont see the collections
+
 
 #Reading
 2: Selective search using .find()
@@ -44,10 +44,15 @@ db.dogs.find({breed:"corgi"}) //find corgi breed in dog collection
 
 db.dogs.updateMany({catFriendly: true}, {$set:{isAvailable: false}}) //if catFriendly, change availability to false.
 
-There are many other operator like 
+There are many other operator like
 $currentDate:{ lastModified:true} // this will change last modified to current date.
 
 #delete
 4: db.cats.deleteOne({name:"blue Steele"})
 db.dogs.deleteMany({isAvailable:false}) //delete multiple
 db.dogs.deleteMany({}) deletes entire collection
+
+special operators
+$gt
+$lt
+$in
