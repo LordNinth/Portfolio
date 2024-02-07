@@ -42,6 +42,8 @@ db.dogs.find({breed:"corgi"}) //find corgi breed in dog collection
 #update
 3: db.dogs.updateOne({name:'Charlie'}, {$set: {age:4}}) //first arg is selector to find, second arg is the update. Use $set operator
 
+db.dogs.updateMany({catFriendly: true}, {$set:{isAvailable: false}}) //if catFriendly, change availability to false.
+
 There are many other operator like 
 $currentDate:{ lastModified:true} // this will change last modified to current date.
 
