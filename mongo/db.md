@@ -1,16 +1,23 @@
+Mongo is no SQL. It uses JS syntax.
+
 Binary json(Bson) is very compact and it allows us to store more datatypes than json. However, it is not human readable like json.
 
 Json supports: String, bool, number and array
 Bson: String, Boolean, Number(int, float,long,decimal...), Array, Date, Raw binary
 
+commands:
+    Open shell //mongosh
+    Use animalShelter // creates a new collection
+    db // shows current collection
+
 Insert Methods
 Specify collection you want to insert
 When inserting if collections doesn't exists, it creates for us.
 
-commands:
+
 //Create
 1: Inserting one object
-db.dogs.insert({name: "charlie", age:3, breed:"corgi", likeCat: true}) //dogs is empty collection, so dog will be created and object will be inserted.
+db.dogs.insert({name: "charlie", age:3, breed:"corgi", likeCat: true}) //dogs is empty collection, so dog will be created and JS object will be inserted. Mongo methods will turn passed object into Bson.
 
 inserting multiple obj in array
 db.dogs.insert([{name:"wyat", breed:"golden"}, {name:"tonya", breed:"chihuahua"}])
