@@ -30,9 +30,9 @@
 // setTimeout(()=>{
 //     document.body.style.backgroundColor = firstColor.hex(1);
 
-// [NOTE: Each new Object created through Ff () will also have copy of properties and "methods". properties will always be needed as colors values will be different for each color.
+// [Cons: Each new Object created through Ff () will also have copy of properties and "methods". properties will always be needed as colors values will be different for each color.
 // However, there is no need for unique copy of function itself.]
-// [NOTE: every array built in array methods from one prototype Object.]
+// [NOTE: every array built-in array methods comes from one prototype Object.]
 
 // },2000)
 
@@ -77,11 +77,13 @@
 // class Color { //always capitalize class
 //   constructor(r, g, b, name) { //first thing that needs to be defined
 //     //constructor will always run immediately
-//     this.r = r;
+//     this.r = r; // these are going to be added as properties to the Color object that is returned to const c1 when new object is instantiated
 //     this.g = g;
 //     this.b = b;
 //     this.name = name;
 //   }
+// vonst c1 = new Color(10,255,255) (these arguments will be added as properties)
+
 //   //with class you can GROUP properties and methods together. They are added to the prototype automatically
 //   innerRGB() {
 //     const { r, g, b } = this; //destructure
@@ -115,8 +117,8 @@ class Pet{ //base class
     }
 }
 class Cat extends Pet{
-    //sometimes you want to rely on constructor from super class i.e Pet
-    //E.g if i want additional info on cat
+    //sometimes you want to rely on constructor from super class i.e Pet. If Cat doesn't have its own constructor defined, it will inherit from pet. It will also inherit super methods.
+    //E.g if i want additional info on cat, then I would define another constructor + new parameters
     constructor(name,age,lives=9){
         //super references the class that is being extended
         super(name,age) //this will call the Pet constructor and allows us to reuse functionality from pet constructor. I.e inheritance

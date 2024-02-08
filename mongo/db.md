@@ -56,7 +56,9 @@ $gt: greater than
 $lt: less than
 $in: 
     i: find breed which is mutt or corgi , less than 10 aged
-    db.dogs.find({breed: {$in: ['mutt', 'corgi']}, age:{$lt:10}}) 
+    db.dogs.find({breed: {$in: ['mutt', 'corgi']}, age:{$lt:10}})
 
 $or: set it equal to array which has multiple expression
-    db.dogs.find({$or: [{"personality.catFriendly": true}, {age: {$ltc:2}}]})
+    db.dogs.find({
+        $or: [{"personality.catFriendly": true}, {age: {$ltc:2}}]
+})
