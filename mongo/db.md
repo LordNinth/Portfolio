@@ -1,9 +1,19 @@
-Mongo is no SQL. It uses JS syntax.
+Mongo DB General purpose document database. Mongo is no SQL. It uses JS syntax.
+It structures data in documents which are similar to json objects. This model makes it easier to plan how app data will correspond to data in DB, it can model data of any shape: key-value, geo space. One format for any applications.
+
+---
+
+Document is basic unit data in MongoDB: { "key": value}. Every document requires an \_id field which acts as primary key. If doc have no id, MongoDb automatically generates it. By default, it supports polymorphic documents with flexible schema. It can change as requirement change.
+Collection is grouping of the documents
+A DB is container for collections
+MongoDb is core of Atlas
+
+---
 
 Binary json(Bson) is very compact and it allows us to store more datatypes than json. However, it is not human readable like json.
 
 Json supports: String, bool, number and array
-Bson: String, Boolean, Number(int, float,long,decimal...), Array, Date, Raw binary
+Bson: ObjectId, String, Boolean, Number(int, float,long,decimal...), Array, Date, Raw binary
 
 commands:
 Open shell //mongosh
