@@ -20,6 +20,9 @@ Open shell //mongosh
 Use animalShelter // creates a new collection
 db // shows current collection
 
+./ means this directory
+../ one directory above current
+
 Insert Methods
 Specify collection you want to insert
 When inserting if collections doesn't exists, it creates for us.
@@ -72,3 +75,31 @@ $or: set it equal to array which has multiple expression
     db.dogs.find({
         $or: [{"personality.catFriendly": true}, {age: {$ltc:2}}]
 })
+
+
+--  Module 
+Node.js allows JS programs to split into separate modules that can be imported whne needed.
+
+exports
+imports
+
+
+module.exports property exports empty obj by default and is used to export JS values from modules. 
+It can then be imported from other files for use.
+
+---
+File directory example
+User/app/index.js views
+
+path.join('__dirname', 'views') = Look for views folder in which current file is located.
+ Not from where I executed nodemon from. I could run nodemon from User, which would give me error as view engine
+will search for views folder in User/ instead of app.
+Therefore, path.join will set __dirname to /App and look for views.
+
+
+---
+app.set() method accepts 2 argument. Key/Property and its value.
+We use it to set 'view engine' to 'ejs'
+
+When we make new express app, by setting view engine to ejs. 
+Express app will look for ejs templates in view dir.

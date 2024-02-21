@@ -51,9 +51,14 @@ get/gists/{gist_id}: gives me info /serve a form with .render
 
 post/gists/{gist_id}: post req to same endpoint gists is how we make new gist. (gists is a resource in rest context)
 
+-- need to npm i methodOverride and require it
 patch/gists/{gist_id}: updating something on same endpoint. /also has payload like post request
 
+put: replacing whole  object.
+
 delete/gists/{gist_id}: delete something 
+
+
 
 I have crud capability via http.
 
