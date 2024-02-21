@@ -103,3 +103,7 @@ We use it to set 'view engine' to 'ejs'
 
 When we make new express app, by setting view engine to ejs. 
 Express app will look for ejs templates in view dir.
+
+app.set('views', path.join(__dirname, '/views')) adds views to index.js(roots)
+
+app.use(express.static(('public', path.join'__dirname, 'public')) to serve static images from index.js/root
