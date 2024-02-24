@@ -11,17 +11,18 @@ MongoDb is core of Atlas
 ---
 
 Binary json(Bson) is very compact and it allows us to store more datatypes than json. However, it is not human readable like json.
-
+----
 Json supports: String, bool, number and array
 Bson: ObjectId, String, Boolean, Number(int, float,long,decimal...), Array, Date, Raw binary
-
+-----
 commands:
 Open shell //mongosh
 Use animalShelter // creates a new collection
 db // shows current collection
-
+----
 ./ means this directory
 ../ one directory above current
+----
 
 Insert Methods
 Specify collection you want to insert
@@ -75,7 +76,7 @@ $or: set it equal to array which has multiple expression
     db.dogs.find({
         $or: [{"personality.catFriendly": true}, {age: {$ltc:2}}]
 })
-
+----
 
 --  Module 
 Node.js allows JS programs to split into separate modules that can be imported whne needed.
