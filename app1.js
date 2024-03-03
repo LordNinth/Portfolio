@@ -20,6 +20,17 @@ isChild(5) // true
 isSenior(50) //true
 isSenior(5) //false
 
+
+//1.1: high order function complex example
+function wrapAsync(fn){
+  return function(req,res,next){
+    fn(req,res,next).catch(e=>next(e))
+  }
+}
+app.get('/', wrapAsync(async(req,res,next)=>{
+  //code
+}))
+
 //2 return value of function captured in x variable and returned
 function bar(b){
   const c = b +1
