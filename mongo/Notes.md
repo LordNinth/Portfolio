@@ -59,6 +59,8 @@ db.dogs.updateMany({catFriendly: true}, {$set:{isAvailable: false}}) //if catFri
 There are many other operator like
 $currentDate:{ lastModified:true} // this will change last modified to current date.
 
+findByIdAndUpdate(a,b) takes 2 arguments(key and the value)
+
 #delete
 4: db.cats.deleteOne({name:"blue Steele"})
 db.dogs.deleteMany({isAvailable:false}) //delete multiple
@@ -75,9 +77,13 @@ $or: set it equal to array which has multiple expression
     db.dogs.find({
         $or: [{"personality.catFriendly": true}, {age: {$ltc:2}}]
 })
+--
+mongoose.model() function is used to create a collection in a MongoDB
+It accepts two parameters: Collection name and its Schema
+It returns mongoose object
 
-
---  Module 
+--  
+Module 
 Node.js allows JS programs to split into separate modules that can be imported whne needed.
 
 exports
@@ -107,3 +113,16 @@ Express app will look for ejs templates in view dir.
 app.set('views', path.join(__dirname, '/views')) adds views to index.js(roots)
 
 app.use(express.static(('public', path.join'__dirname, 'public')) to serve static images from index.js/root
+
+
+---
+Middleware
+
+Middleware are functions that run during the req/res lifecycle
+Each middleware have access to req/res obj and the next middleware function denoted by next()
+It can end HTTP req by sending back a response with methods like res.send()
+Or it can be chained together , one after another by calling next()
+Route handlers are mdidleware
+
+---
+ error

@@ -19,3 +19,20 @@ isChild(50) // false
 isChild(5) // true
 isSenior(50) //true
 isSenior(5) //false
+
+//2 return value of function captured in x variable and returned
+function bar(b){
+  const c = b +1
+  return c
+}
+function foo(a){
+  if(a) x = bar(a) //different variable being assigned return value of bar()
+  return x
+}
+
+function foo(a){
+  if(a) a = bar(a) //a value being reassigned with the return value of bar()
+  return a
+}
+
+console.log(foo(2))
