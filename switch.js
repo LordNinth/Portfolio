@@ -62,4 +62,13 @@ function sayHello(country, time) {
     return greeting;
 }
 
+lexical scope:
+let a;
+let out = ()=>{
+    let b= 0:
+    console.log(a)
+}
+console.log(b) 
+ref error because out of scope 
+
 
