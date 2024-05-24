@@ -57,3 +57,64 @@ function getNestedFirstAndLast(array) {
       return result
   }
   }
+
+  //adding job title
+  const graduate = { name: "Jonny JavaScript", course: "Software Development", graduationYear: 2020 },
+  function addJobTitle(graduates) {
+    // Write your code here
+    let obj = [];
+    graduates.forEach(graduate =>{
+       if(graduate.course == "Software Development"){
+        graduate.jobTitle = graduate.graduationYear <2020 ? "Senior Software Developer": "Junior Software Developer";
+        obj.push(graduate);       
+        }
+       else
+       {
+        graduate.jobTitle = graduate.graduationYear <2020  ? "Senior Data Engineer": "Junior Data Engineer";
+        obj.push(graduate)
+        }
+    })
+   
+    return obj
+    }
+
+    //finding middle string
+
+    function returnMiddleCharacter(string) {
+      // Write your code here
+      let oddMiddle;
+      let evenMiddle;
+      let result;
+      //for odd string
+      if(string.length%2!==0){
+          oddMiddle =    string.length/2; 
+          result = string.charAt(oddMiddle)
+      }else{ //for even string
+           oddMiddle = string.length/2
+           evenMiddle = string.length/2 -1
+           result =  string.charAt(evenMiddle) + string.charAt(oddMiddle)
+      }
+      return result
+      }
+
+      //find x in the grid
+      function findTheX(grid) {
+        let result = ""
+        // Write your code here
+        console.log(grid)
+        for(let i=0; i<grid.length;i++){
+            let row = i;
+            //console.log(grid[i])
+            for(let j=0; j<grid[i].length;j++){
+                let column = j;
+                if(grid[i][j]== "X"){
+                    console.log(grid[i][j])
+                    result = `X was found on row ${row} and column ${column}`;
+                    return result
+                }else{
+                   result = 'No X found'
+                }
+            }
+        }
+        return result
+        }
