@@ -35,4 +35,25 @@ function countTheLetters(string, letter) {
   return count;
 }
 
-countTheLetters("hello", "h");
+//find first and last in array
+
+function getNestedFirstAndLast(array) {
+  // Write your code here
+
+  let result = []
+  const lastItem = array.length -1
+  let lastArrayLastItem = [];
+  //greater than 1
+  if(array.length>1){
+      lastArrayLastItem = array[lastItem].length - 1
+      result.push(array[0][0],array[lastItem][lastArrayLastItem])
+      return result
+      //equal to 1
+  }else if (array.length == 1){
+      result.push(array[0][0], array[0][1])
+      return result
+     //else
+  }else{
+      return result
+  }
+  }
