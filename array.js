@@ -118,3 +118,16 @@ function getNestedFirstAndLast(array) {
         }
         return result
         }
+//transfer product
+        function transferProduct(shelf, basket, product) {
+    
+          console.log(shelf.orange)
+          product = shelf.orange
+        
+          basket.phone = 'Complete with built-in Snake'
+      
+          console.log(basket)
+          delete shelf.orange
+      
+              
+          }
