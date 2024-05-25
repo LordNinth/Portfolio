@@ -121,13 +121,14 @@ function getNestedFirstAndLast(array) {
 //transfer product
         function transferProduct(shelf, basket, product) {
     
-          console.log(shelf.orange)
-          product = shelf.orange
+        for(let key in shelf){
+          product = key
+        }
         
           basket.phone = 'Complete with built-in Snake'
       
-          console.log(basket)
-          delete shelf.orange
-      
+          
+          delete shelf[product]
               
           }
+  
