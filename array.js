@@ -1,5 +1,6 @@
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
-
+//split(): splits element and gives array. is a copy
+///join(): array - string and joins all elements 
 let obj = {}
 //i is a variable, there need bracket notation to view it
 data.forEach(i=>{
